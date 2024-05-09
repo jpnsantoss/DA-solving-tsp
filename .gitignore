@@ -1,0 +1,6 @@
+build/**
+cmake-build-debug/**
+docs/output/**
+.idea/**
+DA_RoutingAlgorithms
+DA_RoutingAlgorithms.exe
