@@ -6,7 +6,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 add_executable(DA_RoutingAlgorithms
-        src/utils/DataStructures/Graph.h
+        src/models/Graph.h
         src/utils/DataStructures/Heap.cpp
         src/utils/DataStructures/Heap.h
         src/utils/DataStructures/MutablePriorityQueue.h
@@ -14,7 +14,9 @@ add_executable(DA_RoutingAlgorithms
         src/utils/DataStructures/UFDS.h
         src/utils/Dataset.cpp
         src/utils/Dataset.h
-        src/main.cpp)
+        src/main.cpp
+        src/models/Graph.cpp
+        src/models/VertexEdge.cpp)
 
 
 # Doxygen Build

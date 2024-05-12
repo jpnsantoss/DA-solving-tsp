@@ -51,31 +51,45 @@ build cmake_object_order_depends_target_DA_RoutingAlgorithms: phony || CMakeFile
 
 build CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/Heap.cpp.o: CXX_COMPILER__DA_RoutingAlgorithms_unscanned_Debug /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/DataStructures/Heap.cpp || cmake_object_order_depends_target_DA_RoutingAlgorithms
   DEP_FILE = CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/Heap.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/DataStructures
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src
   OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures
 
 build CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/UFDS.cpp.o: CXX_COMPILER__DA_RoutingAlgorithms_unscanned_Debug /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/DataStructures/UFDS.cpp || cmake_object_order_depends_target_DA_RoutingAlgorithms
   DEP_FILE = CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/UFDS.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/DataStructures
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src
   OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures
 
 build CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/Dataset.cpp.o: CXX_COMPILER__DA_RoutingAlgorithms_unscanned_Debug /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/Dataset.cpp || cmake_object_order_depends_target_DA_RoutingAlgorithms
   DEP_FILE = CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/Dataset.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/DataStructures
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src
   OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_RoutingAlgorithms.dir/src/utils
 
 build CMakeFiles/DA_RoutingAlgorithms.dir/src/main.cpp.o: CXX_COMPILER__DA_RoutingAlgorithms_unscanned_Debug /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/main.cpp || cmake_object_order_depends_target_DA_RoutingAlgorithms
   DEP_FILE = CMakeFiles/DA_RoutingAlgorithms.dir/src/main.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/utils/DataStructures
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src
   OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
   OBJECT_FILE_DIR = CMakeFiles/DA_RoutingAlgorithms.dir/src
+
+build CMakeFiles/DA_RoutingAlgorithms.dir/src/models/Graph.cpp.o: CXX_COMPILER__DA_RoutingAlgorithms_unscanned_Debug /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/models/Graph.cpp || cmake_object_order_depends_target_DA_RoutingAlgorithms
+  DEP_FILE = CMakeFiles/DA_RoutingAlgorithms.dir/src/models/Graph.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src
+  OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles/DA_RoutingAlgorithms.dir/src/models
+
+build CMakeFiles/DA_RoutingAlgorithms.dir/src/models/VertexEdge.cpp.o: CXX_COMPILER__DA_RoutingAlgorithms_unscanned_Debug /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src/models/VertexEdge.cpp || cmake_object_order_depends_target_DA_RoutingAlgorithms
+  DEP_FILE = CMakeFiles/DA_RoutingAlgorithms.dir/src/models/VertexEdge.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/src
+  OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
+  OBJECT_FILE_DIR = CMakeFiles/DA_RoutingAlgorithms.dir/src/models
 
 
 # =============================================================================
@@ -83,15 +97,21 @@ build CMakeFiles/DA_RoutingAlgorithms.dir/src/main.cpp.o: CXX_COMPILER__DA_Routi
 
 
 #############################################
-# Link the executable DA_RoutingAlgorithms
+# Link the executable /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/DA_RoutingAlgorithms
 
-build DA_RoutingAlgorithms: CXX_EXECUTABLE_LINKER__DA_RoutingAlgorithms_Debug CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/Heap.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/UFDS.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/Dataset.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/main.cpp.o
+build /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/DA_RoutingAlgorithms: CXX_EXECUTABLE_LINKER__DA_RoutingAlgorithms_Debug CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/Heap.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/DataStructures/UFDS.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/utils/Dataset.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/main.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/models/Graph.cpp.o CMakeFiles/DA_RoutingAlgorithms.dir/src/models/VertexEdge.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/DA_RoutingAlgorithms.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = DA_RoutingAlgorithms
+  TARGET_FILE = /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/DA_RoutingAlgorithms
   TARGET_PDB = DA_RoutingAlgorithms.dbg
+
+
+#############################################
+# Utility command for Doxygen
+
+build Doxygen: phony CMakeFiles/Doxygen
 
 
 #############################################
@@ -116,8 +136,18 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Custom command for CMakeFiles/Doxygen
+
+build CMakeFiles/Doxygen | ${cmake_ninja_workdir}CMakeFiles/Doxygen: CUSTOM_COMMAND
+  COMMAND = cd /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/cmake-build-debug && /usr/local/bin/doxygen /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/cmake-build-debug/Doxyfile
+  DESC = Generating API documentation with Doxygen
+
 # =============================================================================
 # Target aliases.
+
+build DA_RoutingAlgorithms: phony /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/DA_RoutingAlgorithms
 
 # =============================================================================
 # Folder targets.
@@ -127,7 +157,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/cmake-build-debug
 
-build all: phony DA_RoutingAlgorithms
+build all: phony /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/DA_RoutingAlgorithms Doxygen
 
 # =============================================================================
 # Built-in targets
@@ -136,14 +166,14 @@ build all: phony DA_RoutingAlgorithms
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindDoxygen.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/CMakeLists.txt /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/docs/Doxyfile CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
+build /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindDoxygen.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/FindPackageMessage.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /home/simaonery/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/CMakeLists.txt /home/simaonery/Desktop/2Ano/2_Semestre/D.A/Projeto2/DA_RoutingAlgorithms/docs/Doxyfile CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
 
 
 #############################################

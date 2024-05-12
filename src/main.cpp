@@ -1,21 +1,12 @@
-#include "Dataset.h"
+#include "utils/Dataset.h"
 #include "iostream"
 
 int main() {
     Dataset* dataset = Dataset::getInstance();
 
-    int count = 0;
+    dataset->loadRealWorldGraph("data/Real_World_Graphs/graph3/nodes.csv", "data/Real_World_Graphs/graph3/edges.csv");
 
-    for(auto v : dataset->getGraph2().getVertexSet()) {
-        for(auto edge : v->getAdj()) {
-            count++;
-            cout << "Vertex Id:" << v->getInfo().first;
-            auto destination = edge->getDest();
-            cout << " | Destination:" << destination->getInfo().first << " | " << edge->getWeight() << endl;
-        }
-    }
-
-    cout << count;
+    cout << "done";
 
     return 0;
 }
