@@ -5,7 +5,7 @@ void Menu::mainMenu() {
     clearScreen();
     cout << "**********************************************\n"
          << "*                                            *\n"
-         << "*     Routing Algorithms: Select a Graph     *\n"
+         << "*  Routing Algorithms: Select an Algorithm   *\n"
          << "*                                            *\n"
          << "*     1) Backtracking Algorithm              *\n"
          << "*     2) Triangular Approximation Heuristic  *\n"
