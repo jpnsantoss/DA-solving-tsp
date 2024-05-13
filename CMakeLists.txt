@@ -16,7 +16,9 @@ add_executable(DA_RoutingAlgorithms
         src/utils/Dataset.h
         src/main.cpp
         src/models/Graph.cpp
-        src/models/VertexEdge.cpp)
+        src/models/VertexEdge.cpp
+        src/views/Menu.h
+        src/views/Menu.cpp)
 
 
 # Doxygen Build
