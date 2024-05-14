@@ -39,8 +39,12 @@ public:
     // Getters
     unordered_map<int, Vertex *> getVertexSet() const;
 
+    double tspBacktracking(vector<int> &path);
+
 protected:
     unordered_map<int, Vertex *> vertexSet;    // vertex set
+
+    double tspBacktracking(vector<int> &path, int vertex, double sum, double bestSum, uint step);
 };
 
 #endif /* DA_TP_CLASSES_GRAPH */

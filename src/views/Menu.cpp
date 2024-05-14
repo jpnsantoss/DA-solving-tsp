@@ -49,26 +49,45 @@ void Menu::backtrackingAlgorithm() {
          << "*     Routing Algorithms: Backtracking       *\n"
          << "*     (Toy Graphs)                           *\n"
          << "*                                            *\n"
-         << "*     1) RUN                                 *\n"
+         << "*     1) Shipping                            *\n"
+         << "*     2) Stadiums                            *\n"
+         << "*     3) Tourism                             *\n"
          << "*     0) BACK                                *\n"
          << "*                                            *\n"
          << "**********************************************\n"
          << "Option: ";
     int option;
-    while (!(cin >> option) || option < 0 || option > 5) {
+    while (!(cin >> option) || option < 0 || option > 3) {
         cout << "Invalid option. Please try again: ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     switch (option) {
+
         case 1: {
-            cout << "Running backtracking algorithm..." << endl;
+            Dataset::getInstance()->loadGraph("data/Toy-Graphs/shipping.csv");
+            break;
+        }
+        case 2: {
+            Dataset::getInstance()->loadGraph("data/Toy-Graphs/stadiums.csv");
+            break;
+        }
+        case 3: {
+            Dataset::getInstance()->loadGraph("data/Toy-Graphs/tourism.csv");
             break;
         }
         case 0: {
             mainMenu();
             break;
         }
+    }
+    Graph graph = Dataset::getInstance()->getGraph();
+    vector<int> path(graph.getVertexSet().size());
+    double distance = graph.tspBacktracking(path);
+    cout << "Distance: " << distance << endl;
+    cout << "Path: ";
+    for(auto v : path) {
+        cout << v << " ";
     }
 }
 

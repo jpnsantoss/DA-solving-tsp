@@ -51,3 +51,53 @@ bool Graph::addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const 
 }
 
 Graph::~Graph() = default;
+
+double Graph::tspBacktracking(vector<int> &path) {
+    for (auto v: vertexSet) {
+        v.second->setVisited(false);
+    }
+
+    findVertex(0)->setVisited(true);
+
+    double bestDist = tspBacktracking(path, 0, 0, INF, 1);
+
+    path.push_back(0);
+    return bestDist;
+}
+
+double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, double bestSum, uint step) {
+    double currentSum = 0;
+    Vertex *vertex = findVertex(vertexId);
+
+    if (step == vertexSet.size()) {
+        for(auto e: vertex->getAdj()) {
+            if(e->getDest()->getId() == 0) {
+                return sum + e->getDistance();
+            }
+            return bestSum;
+        }
+    }
+
+    for(auto v: vertexSet) {
+        Vertex *dest = v.second;
+
+        if(dest->isVisited()) continue;
+
+        for (Edge *e: vertex->getAdj()) {
+            if (e->getDest() == dest) {
+               double dist = e->getDistance();
+
+               if(sum + dist < bestSum) {
+                   dest->setVisited(true);
+                   currentSum = tspBacktracking(path, dest->getId(), sum + dist, bestSum, step + 1);
+                   if(currentSum < bestSum) {
+                       bestSum = currentSum;
+                       path[step] = v.first;
+                   }
+                   dest->setVisited(false);
+               }
+            }
+        }
+    }
+    return bestSum;
+}
