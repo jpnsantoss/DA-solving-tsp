@@ -133,8 +133,12 @@ void Menu::nearestNeighborHeuristic() {
          << "*     Routing Algorithms: Nearest Neighbor    *\n"
          << "*     (Toy Graphs)                           *\n"
          << "*                                            *\n"
-         << "*     1) Run for Extra Graphs                *\n"
-         << "*     2) Run for Real World Graphs           *\n"
+         << "*     1)Shipping                             *\n"
+         << "*     2)Stadiums                             *\n"
+         << "*     3)Tourism                              *\n"
+         << "*                                            *\n"
+         << "*     4) Run for Extra Graphs                *\n"
+         << "*     5) Run for Real World Graphs           *\n"
          << "*     0) BACK                                *\n"
          << "*                                            *\n"
          << "**********************************************\n"
@@ -147,17 +151,33 @@ void Menu::nearestNeighborHeuristic() {
     }
     switch (option) {
         case 1: {
-            cout << "Running Nearest Neighbor Heuristic for Extra Graphs..." << endl;
+            cout << "Running Nearest Neighbor Heuristic for Shipping..." << endl;
+            Dataset::getInstance()->loadGraph("data/Toy-Graphs/shipping.csv");
+
             break;
         }
         case 2: {
-            cout << "Running Nearest Neighbor Heuristic for Real World Graphs..." << endl;
+            cout << "Running Nearest Neighbor Heuristic for Stadiums..." << endl;
+            Dataset::getInstance()->loadGraph("data/Toy-Graphs/stadiums.csv");
+            break;
+        }
+        case 3: {
+            cout << "Running Nearest Neighbor Heuristic for Tourism..." << endl;
+            Dataset::getInstance()->loadGraph("data/Toy-Graphs/tourism.csv");
             break;
         }
         case 0: {
             mainMenu();
             break;
         }
+    }
+    Graph graph = Dataset::getInstance()->getGraph();
+    vector<int> path(graph.getVertexSet().size());
+    double distance = graph.tspNearestNeighbour(path);
+    cout << "Distance: " << distance << endl;
+    cout << "Path: ";
+    for(auto v : path) {
+        cout << v << " ";
     }
 }
 

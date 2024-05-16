@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include <map>
+#include <cmath>
 
 unordered_map<int, Vertex *> Graph::getVertexSet() const {
     return vertexSet;
@@ -52,6 +53,7 @@ bool Graph::addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const 
 
 Graph::~Graph() = default;
 
+//-------------------------------Backtracking--------------------------------------------------//
 double Graph::tspBacktracking(vector<int> &path) {
     for (auto v: vertexSet) {
         v.second->setVisited(false);
@@ -100,4 +102,104 @@ double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, doubl
         }
     }
     return bestSum;
+}
+//-------------------------------NearestNodes--------------------------------------------------//
+Vertex* Graph::findNearestNeighbour(Vertex *v) {
+    double minDistance = numeric_limits<double>::max();
+    Vertex *res;
+
+    auto latitude1 = v->getCords().latitude;
+    auto longitude1 = v->getCords().longitude;
+
+    for(auto vert : vertexSet) {
+        if(vert.second->isVisited()) continue;
+        if(v->getId() == vert.first) continue;
+
+        double distance = calculate_distance(latitude1, vert.second->getCords().latitude, longitude1, vert.second->getCords().longitude);
+        if(distance < minDistance) {
+            minDistance = distance;
+            res = vert.second;
+        }
+    }
+
+    return res;
+}
+
+double Graph::tspNearestNeighbour( vector<int> &path) {
+    for(auto vert : vertexSet) {
+        vert.second->setVisited(false);
+    }
+
+    int visitedVertexes = 0;
+    double totalDistance = 0;
+
+    auto origin = findVertex(0);
+    auto current = origin;
+    Vertex* next;
+
+    current->setVisited(true);
+
+    path.push_back(current->getId());
+    visitedVertexes++;
+
+    while(visitedVertexes < vertexSet.size()) {
+        double minDistance = numeric_limits<double>::max();
+
+        for (auto edge : current->getAdj()) { //if it's not a real world graph
+            if (!edge->getDest()->isVisited() && edge->getDistance() < minDistance) {
+                minDistance = edge->getDistance();
+                next = edge->getDest();
+            }
+        }
+
+        if (current == next) { //since they are not fully connected
+            next = findNearestNeighbour(current);
+            minDistance = calculate_distance(current->getCords().latitude, next->getCords().latitude, current->getCords().longitude, next->getCords().longitude);
+        }
+
+        next->setVisited(true);
+        path.push_back(next->getId());
+
+        current = next;
+
+        totalDistance += minDistance;
+        visitedVertexes++;
+    }
+
+    //in the case it's not fully connected and a connection to origin doesn't exist
+    for(auto edge : current->getAdj()) {
+        if(edge->getDest()->getId() == 0) {
+            totalDistance += edge->getDistance();
+            break;
+        }
+
+        totalDistance += calculate_distance(current->getCords().latitude, origin->getCords().latitude, current->getCords().longitude, origin->getCords().longitude);
+    }
+
+    path.push_back(0);
+
+    return totalDistance;
+}
+
+//-------------------------------Helpers--------------------------------------------------//
+double Graph::convert(const double angle) {
+    return angle * (M_PI/180);
+}
+
+double Graph::calculate_distance(const double latitude1, const double latitude2, const double longitude1, const double longitude2) {
+    const double earths_radius = 6371;
+
+    const auto lat_delta = convert(latitude2 - latitude1);
+    const auto lon_delta = convert(longitude2 - longitude1);
+
+    const auto converted_lat1 = convert(latitude1);
+    const auto converted_lat2 = convert(latitude2);
+
+    const auto a =
+            pow(sin(lat_delta / 2), 2) + cos(converted_lat1) * cos(converted_lat2) * pow(sin(lon_delta / 2), 2);
+
+    const auto c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    const auto d = earths_radius * c;
+
+    return d;
 }

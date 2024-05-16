@@ -41,10 +41,18 @@ public:
 
     double tspBacktracking(vector<int> &path);
 
+    double tspNearestNeighbour( vector<int> &path);
+
 protected:
     unordered_map<int, Vertex *> vertexSet;    // vertex set
 
     double tspBacktracking(vector<int> &path, int vertex, double sum, double bestSum, uint step);
+
+    static double convert(double angle);
+
+    static double calculate_distance(double latitude1, double latitude2, double longitude1, double longitude2);
+
+    Vertex* findNearestNeighbour(Vertex *v);
 };
 
 #endif /* DA_TP_CLASSES_GRAPH */
