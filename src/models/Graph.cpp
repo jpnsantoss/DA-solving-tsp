@@ -51,6 +51,10 @@ bool Graph::addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const 
     return true;
 }
 
+void Graph::clearGraph() {
+    vertexSet.clear();
+}
+
 Graph::~Graph() = default;
 
 //-------------------------------Backtracking--------------------------------------------------//

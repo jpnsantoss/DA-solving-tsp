@@ -36,12 +36,14 @@ public:
 
     bool addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const;
 
+    void clearGraph();
+
     // Getters
     unordered_map<int, Vertex *> getVertexSet() const;
 
     double tspBacktracking(vector<int> &path);
 
-    double tspNearestNeighbour( vector<int> &path);
+    double tspNearestNeighbour(vector<int> &path);
 
 protected:
     unordered_map<int, Vertex *> vertexSet;    // vertex set

@@ -14,22 +14,17 @@ using namespace std;
 
 class Menu {
 public:
-    void display();
-
-    static void backToMain(); // Add this line
     void mainMenu();
 
-    void clearScreen();
+    static void clearScreen();
 
-    void wait();
+    static void extraGraphsMenu();
 
-    void backtrackingAlgorithm();
+    static void realWorldGraphsMenu();
 
-    void triangularApproximationHeuristic();
+    static void toyGraphsMenu();
 
-    void nearestNeighborHeuristic();
-
-    void christofidesHeuristic();
+    static void chooseAlgorithm();
 };
 
 
