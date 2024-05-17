@@ -93,6 +93,10 @@ Coordinates Vertex::getCords() const {
     return this->cords;
 }
 
+void Vertex::incrementmstdegree() {
+    mstdegree++;
+}
+
 //-----------------------Edge-----------------------------------
 
 Edge::Edge(Vertex *orig, Vertex *dest, double distance) {
