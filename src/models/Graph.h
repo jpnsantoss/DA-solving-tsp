@@ -55,6 +55,12 @@ protected:
     static double calculate_distance(double latitude1, double latitude2, double longitude1, double longitude2);
 
     Vertex* findNearestNeighbour(Vertex *v);
+
+    double calculateDistance(Coordinates c1, Coordinates c2);
+
+    double haversineDistance(Coordinates c1, Coordinates c2);
+
+    double calculateDistance(Vertex *v1, Vertex *v2);
 };
 
 #endif /* DA_TP_CLASSES_GRAPH */

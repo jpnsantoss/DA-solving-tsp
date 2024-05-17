@@ -242,6 +242,7 @@ void Menu::chooseAlgorithm() {
             //distance = Dataset::getInstance()->getGraph().tspTriangularApproximation();
             break;
         case 3:
+            path.clear();
             distance = Dataset::getInstance()->getGraph().tspNearestNeighbour(path);
             break;
         case 4:
