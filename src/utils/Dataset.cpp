@@ -130,7 +130,7 @@ void Dataset::loadRealWorldGraph(const string& nodesPath, const string& edgesPat
         auto v1 = graph.findVertex(node1);
         auto v2 = graph.findVertex(node2);
 
-        graph.addEdge(v1, v2, distance);
+        graph.addBidirectionalEdge(v1, v2, distance);
     }
 
     edgeFile.close();
