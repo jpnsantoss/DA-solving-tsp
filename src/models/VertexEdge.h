@@ -54,6 +54,8 @@ private:
 
     void deleteEdge(Edge *edge);
 
+     int mstdegree = 0;
+
 public:
     // Constructor for a VertexEdge
     Vertex(int id);
@@ -88,6 +90,8 @@ public:
     void removeOutgoingEdges();
 
     friend class MutablePriorityQueue<Vertex>;
+
+    void incrementmstdegree();
 };
 
 //-----------------------Edge-----------------------------------

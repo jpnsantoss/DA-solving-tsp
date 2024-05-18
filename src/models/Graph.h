@@ -7,6 +7,7 @@
 #include <limits>
 #include <unordered_map>
 #include <algorithm>
+#include <unordered_set>
 #include "../utils/DataStructures//MutablePriorityQueue.h"
 #include "VertexEdge.h"
 
@@ -36,6 +37,10 @@ public:
 
     bool addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const;
 
+    void prim(Vertex* v);
+
+    void preOrderTraversal(Vertex *v, vector<int> &path, int &pathNum);
+
     void clearGraph();
 
     // Getters
@@ -43,20 +48,16 @@ public:
 
     double tspBacktracking(vector<int> &path);
 
+    double tspTriangularApproximation(vector<int> &path);
+
     double tspNearestNeighbour(vector<int> &path);
 
 protected:
     unordered_map<int, Vertex *> vertexSet;    // vertex set
 
-    double tspBacktracking(vector<int> &path, int vertex, double sum, double bestSum, uint step);
+    double tspBacktracking(vector<int> &path, int vertex, double sum, double bestSum, unsigned step);
 
-    static double convert(double angle);
-
-    static double calculate_distance(double latitude1, double latitude2, double longitude1, double longitude2);
-
-    Vertex* findNearestNeighbour(Vertex *v);
-
-    double calculateDistance(Coordinates c1, Coordinates c2);
+    Vertex *findNearestNeighbour(Vertex *v);
 
     double haversineDistance(Coordinates c1, Coordinates c2);
 

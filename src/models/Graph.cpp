@@ -1,6 +1,9 @@
 #include "Graph.h"
 #include <map>
 #include <cmath>
+#include <set>
+#include <stack>
+#include "unordered_set"
 
 unordered_map<int, Vertex *> Graph::getVertexSet() const {
     return vertexSet;
@@ -51,6 +54,63 @@ bool Graph::addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const 
     return true;
 }
 
+void Graph::prim(Vertex* v) {
+    if (vertexSet.empty()) return;
+
+    for(auto vert : vertexSet) {
+        vert.second->setDist(INF);
+        vert.second->setPath(nullptr);
+        vert.second->setVisited(false);
+    }
+
+    v->setDist(0);
+
+    vector<Vertex*> preOrderTraversal;
+    MutablePriorityQueue<Vertex> q;
+    q.insert(v);
+
+    while(!q.empty() ) {
+        auto aux = q.extractMin();
+        aux->setVisited(true);
+
+        for(auto &edge : aux->getAdj()) {
+            Vertex* dest = edge->getDest();
+
+            if (!dest->isVisited()) {
+                auto oldDist = dest->getDist();
+
+                if(edge->getDistance() < oldDist) {
+                    dest->setDist(edge->getDistance());
+                    dest->setPath(edge);
+
+                    if (oldDist == INF) {
+                        q.insert(dest);
+                    }
+
+                    else {
+                        q.decreaseKey(dest);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+void Graph::preOrderTraversal(Vertex *v, vector<int> &path, int &pathNum) {
+    v->setVisited(true);
+
+    path[pathNum] = v->getId();
+    pathNum++;
+
+    for (auto& edge : v->getAdj()) {
+        Vertex* dest = edge->getDest();
+        if (!dest->isVisited() && edge == dest->getPath()) {
+            preOrderTraversal(dest, path, pathNum);
+        }
+    }
+}
+
 void Graph::clearGraph() {
     vertexSet.clear();
 }
@@ -71,7 +131,7 @@ double Graph::tspBacktracking(vector<int> &path) {
     return bestDist;
 }
 
-double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, double bestSum, uint step) {
+double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, double bestSum, unsigned step) {
     double currentSum = 0;
     Vertex *vertex = findVertex(vertexId);
 
@@ -107,6 +167,29 @@ double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, doubl
     }
     return bestSum;
 }
+
+//-------------------------------Triangular Approximation--------------------------------------------------//
+double Graph::tspTriangularApproximation(vector<int> &path) {
+    auto origin = vertexSet.find(0);
+    prim(origin->second);
+
+    for (auto v: vertexSet) {
+        v.second->setVisited(false);
+    }
+
+    int pathNum = 0;
+    preOrderTraversal(origin->second, path, pathNum);
+
+    path.push_back(origin->first);
+
+    double cost = 0;
+    for(int i = 0; i < path.size() - 1; i++) {
+        cost += calculateDistance(findVertex(path[i]), findVertex(path[i + 1]));
+    }
+
+    return cost;
+}
+
 //-------------------------------NearestNodes--------------------------------------------------//
 Vertex* Graph::findNearestNeighbour(Vertex *source) {
     double min = INF;
@@ -121,8 +204,6 @@ Vertex* Graph::findNearestNeighbour(Vertex *source) {
         }
     }
 
-    cout << "Nearest: " << nearest->getId() << endl;
-
     return nearest;
 }
 
@@ -136,7 +217,7 @@ double Graph::tspNearestNeighbour( vector<int> &path) {
     path.push_back(0);
 
     double sum = 0;
-    for(uint i = 1; i < vertexSet.size(); i++) {
+    for(unsigned i = 1; i < vertexSet.size(); i++) {
         Vertex *nearest = findNearestNeighbour(v);
         nearest->setVisited(true);
         path.push_back(nearest->getId());
@@ -150,14 +231,7 @@ double Graph::tspNearestNeighbour( vector<int> &path) {
     return sum;
 }
 
-double Graph::calculateDistance(Vertex* v1, Vertex* v2) {
-    for(auto e: v1->getAdj()) {
-        if(e->getDest() == v2) {
-            return e->getDistance();
-        }
-    }
-    return haversineDistance(v1->getCords(), v2->getCords());
-}
+
 
 //-------------------------------Helpers--------------------------------------------------//
 double Graph::haversineDistance(Coordinates c1, Coordinates c2)
@@ -174,3 +248,13 @@ double Graph::haversineDistance(Coordinates c1, Coordinates c2)
     double c = 2 * asin(sqrt(a));
     return rad * c;
 }
+
+double Graph::calculateDistance(Vertex* v1, Vertex* v2) {
+    for(auto e: v1->getAdj()) {
+        if(e->getDest() == v2) {
+            return e->getDistance();
+        }
+    }
+    return haversineDistance(v1->getCords(), v2->getCords());
+}
+
