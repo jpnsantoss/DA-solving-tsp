@@ -57,17 +57,23 @@ bool Graph::addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const 
 void Graph::prim(Vertex* v) {
     if (vertexSet.empty()) return;
 
+    MutablePriorityQueue<Vertex> q;
+
     for(auto vert : vertexSet) {
         vert.second->setDist(INF);
         vert.second->setPath(nullptr);
         vert.second->setVisited(false);
+        q.insert(vert.second);
+        for(auto e: vert.second->getAdj()) {
+            e->setSelected(false);
+            e->getReverse()->setSelected(false);
+        }
     }
 
     v->setDist(0);
+    q.decreaseKey(v);
 
     vector<Vertex*> preOrderTraversal;
-    MutablePriorityQueue<Vertex> q;
-    q.insert(v);
 
     while(!q.empty() ) {
         auto aux = q.extractMin();
@@ -76,21 +82,17 @@ void Graph::prim(Vertex* v) {
         for(auto &edge : aux->getAdj()) {
             Vertex* dest = edge->getDest();
 
-            if (!dest->isVisited()) {
-                auto oldDist = dest->getDist();
-
-                if(edge->getDistance() < oldDist) {
-                    dest->setDist(edge->getDistance());
-                    dest->setPath(edge);
-
-                    if (oldDist == INF) {
-                        q.insert(dest);
-                    }
-
-                    else {
-                        q.decreaseKey(dest);
-                    }
+            if (!dest->isVisited() && edge->getDistance() < dest->getDist()){
+                Edge *prevPath = dest->getPath();
+                if(prevPath != nullptr) {
+                    prevPath->setSelected(false);
+                    prevPath->getReverse()->setSelected(false);
                 }
+                dest->setDist(edge->getDistance());
+                dest->setPath(edge);
+                q.decreaseKey(dest);
+                edge->setSelected(true);
+                edge->getReverse()->setSelected(true);
             }
         }
     }
@@ -100,8 +102,7 @@ void Graph::prim(Vertex* v) {
 void Graph::preOrderTraversal(Vertex *v, vector<int> &path, int &pathNum) {
     v->setVisited(true);
 
-    path[pathNum] = v->getId();
-    pathNum++;
+    path[pathNum++] = v->getId();
 
     for (auto& edge : v->getAdj()) {
         Vertex* dest = edge->getDest();
@@ -180,12 +181,12 @@ double Graph::tspTriangularApproximation(vector<int> &path) {
     int pathNum = 0;
     preOrderTraversal(origin->second, path, pathNum);
 
-    path.push_back(origin->first);
-
     double cost = 0;
     for(int i = 0; i < path.size() - 1; i++) {
         cost += calculateDistance(findVertex(path[i]), findVertex(path[i + 1]));
     }
+
+    cost += calculateDistance(findVertex(path[path.back()]), findVertex(0));
 
     return cost;
 }
