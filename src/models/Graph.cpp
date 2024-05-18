@@ -3,6 +3,7 @@
 #include <cmath>
 #include <set>
 #include <stack>
+#include "unordered_set"
 
 unordered_map<int, Vertex *> Graph::getVertexSet() const {
     return vertexSet;
@@ -51,6 +52,63 @@ bool Graph::addBidirectionalEdge(Vertex* v1, Vertex* v2, double distance) const 
     e1->setReverse(e2);
     e2->setReverse(e1);
     return true;
+}
+
+void Graph::prim(Vertex* v) {
+    if (vertexSet.empty()) return;
+
+    for(auto vert : vertexSet) {
+        vert.second->setDist(INF);
+        vert.second->setPath(nullptr);
+        vert.second->setVisited(false);
+    }
+
+    v->setDist(0);
+
+    vector<Vertex*> preOrderTraversal;
+    MutablePriorityQueue<Vertex> q;
+    q.insert(v);
+
+    while(!q.empty() ) {
+        auto aux = q.extractMin();
+        aux->setVisited(true);
+
+        for(auto &edge : aux->getAdj()) {
+            Vertex* dest = edge->getDest();
+
+            if (!dest->isVisited()) {
+                auto oldDist = dest->getDist();
+
+                if(edge->getDistance() < oldDist) {
+                    dest->setDist(edge->getDistance());
+                    dest->setPath(edge);
+
+                    if (oldDist == INF) {
+                        q.insert(dest);
+                    }
+
+                    else {
+                        q.decreaseKey(dest);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+void Graph::preOrderTraversal(Vertex *v, vector<int> &path, int &pathNum) {
+    v->setVisited(true);
+
+    path[pathNum] = v->getId();
+    pathNum++;
+
+    for (auto& edge : v->getAdj()) {
+        Vertex* dest = edge->getDest();
+        if (!dest->isVisited() && edge == dest->getPath()) {
+            preOrderTraversal(dest, path, pathNum);
+        }
+    }
 }
 
 void Graph::clearGraph() {
@@ -111,83 +169,26 @@ double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, doubl
 }
 
 //-------------------------------Triangular Approximation--------------------------------------------------//
+double Graph::tspTriangularApproximation(vector<int> &path) {
+    auto origin = vertexSet.find(0);
+    prim(origin->second);
 
-pair<vector<int>, double> Graph::TriangularApproximation() {
-    set<Edge*> mst;
+    for (auto v: vertexSet) {
+        v.second->setVisited(false);
+    }
+
+    int pathNum = 0;
+    preOrderTraversal(origin->second, path, pathNum);
+
+    path.push_back(origin->first);
+
     double cost = 0;
-
-    for (auto vertex : vertexSet) {
-        vertex.second->setDist(std::numeric_limits<double>::max());
-        vertex.second->setPath(nullptr);
-        vertex.second->setVisited(false);
+    for(int i = 0; i < path.size() - 1; i++) {
+        cost += calculateDistance(findVertex(path[i]), findVertex(path[i + 1]));
     }
 
-    Vertex* root = vertexSet.begin()->second;
-    root->setDist(0);
-    MutablePriorityQueue<Vertex> q;
-    q.insert(root);
-
-    while (!q.empty()) {
-        auto v = q.extractMin();
-        v->setVisited(true);
-        for (auto &e : v->getAdj()) {
-            Vertex* w = e->getDest();
-            if (!w->isVisited()) {
-                auto oldDist = w->getDist();
-                if (e->getDistance() < oldDist) {
-                    w->setDist(e->getDistance());
-                    w->setPath(e);
-                    if (oldDist == std::numeric_limits<double>::max()) {
-                        q.insert(w);
-                    } else {
-                        q.decreaseKey(w);
-                    }
-                }
-            }
-        }
-        if (v->getPath() != nullptr) {
-            mst.insert(v->getPath());
-            v->getPath()->getDest()->incrementmstdegree();
-            v->getPath()->getOrig()->incrementmstdegree();
-        }
-    }
-
-    vector<int> preorder;
-    int lastId;
-    stack<Vertex*> stack;
-    stack.push(findVertex(0));
-    bool child;
-    while (!stack.empty()) {
-        Vertex* current = stack.top();
-        stack.pop();
-        preorder.push_back(current->getId());
-        lastId = current->getId();
-        child = true;
-        for (auto e : current->getAdj()) {
-            Vertex* nextVertex = e->getDest();
-            if (nextVertex->getId() != 0 && nextVertex->getId() != lastId) {
-                cost += e->getDistance();
-                stack.push(nextVertex);
-                child = false;
-            }
-        }
-        if (child && !stack.empty()) {
-            cost += stack.top()->getAdj()[0]->getDistance();
-        }
-    }
-
-    preorder.push_back(0);
-
-    for (auto vertexPair : vertexSet) {
-        if (vertexPair.second->getId() == lastId) {
-            cost += vertexPair.second->getAdj()[0]->getDistance();
-        }
-    }
-
-    return make_pair(preorder, cost);
+    return cost;
 }
-
-
 
 //-------------------------------NearestNodes--------------------------------------------------//
 Vertex* Graph::findNearestNeighbour(Vertex *source) {
@@ -202,8 +203,6 @@ Vertex* Graph::findNearestNeighbour(Vertex *source) {
             nearest = v.second;
         }
     }
-
-    cout << "Nearest: " << nearest->getId() << endl;
 
     return nearest;
 }
@@ -258,3 +257,4 @@ double Graph::calculateDistance(Vertex* v1, Vertex* v2) {
     }
     return haversineDistance(v1->getCords(), v2->getCords());
 }
+

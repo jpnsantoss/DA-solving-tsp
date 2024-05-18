@@ -239,10 +239,9 @@ void Menu::chooseAlgorithm() {
              distance = Dataset::getInstance()->getGraph().tspBacktracking(path);
             break;
         case 2:
-            //distance = Dataset::getInstance()->getGraph().tspTriangularApproximation();
+            distance = Dataset::getInstance()->getGraph().tspTriangularApproximation(path);
             break;
         case 3:
-            path.clear();
             distance = Dataset::getInstance()->getGraph().tspNearestNeighbour(path);
             break;
         case 4:
