@@ -242,6 +242,7 @@ void Menu::chooseAlgorithm() {
             end = clock();
             break;
         case 2:
+            path.resize(Dataset::getInstance()->getGraph().getVertexSet().size());
             start = clock();
             distance = Dataset::getInstance()->getGraph().tspTriangularApproximation(path);
             end = clock();

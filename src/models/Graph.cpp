@@ -73,7 +73,6 @@ void Graph::prim(Vertex* v) {
             }
         }
     }
-
 }
 
 void Graph::preOrderTraversal(Vertex *v, vector<int> &path, int &pathNum) {
@@ -150,7 +149,7 @@ double Graph::tspBacktracking(vector<int> &path, int vertexId, double sum, doubl
 double Graph::tspTriangularApproximation(vector<int> &path) {
     auto origin = vertexSet.find(0);
     prim(origin->second);
-
+    cout << "Prim done" << endl;
     for (auto v: vertexSet) {
         v.second->setVisited(false);
     }
