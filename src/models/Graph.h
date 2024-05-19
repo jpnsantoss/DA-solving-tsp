@@ -33,6 +33,15 @@ public:
     Vertex *findVertex(const int &id) const;
 
     /**
+     * Finds an edge between two vertices in a graph (this).
+     * Complexity: O(1)
+     * @param id1
+     * @param id2
+     * @return a pointer to the edge if it exists, and a nullptr otherwise
+     */
+    Edge * findEdge(const int &id1, const int &id2) const;
+
+    /**
      * Adds a vertex to a graph (this).
      * Complexity: O(1)
      * @param v
@@ -96,6 +105,15 @@ public:
      */
     double tspNearestNeighbour(vector<int> &path);
 
+/**
+ * Calculates the distance between two vertices.
+ * Complexity: O(n) being n the number of vertices adjacent to the first vertex
+ * @param v1 the first vertex
+ * @param v2 the second vertex
+ * @return the distance between the two vertices
+ */
+double calculateDistance(Vertex *v1, Vertex *v2);
+
 protected:
     unordered_map<int, Vertex *> vertexSet;    // vertex set
 
@@ -128,14 +146,6 @@ protected:
      */
     double haversineDistance(Coordinates c1, Coordinates c2);
 
-    /**
-     * Calculates the distance between two vertices.
-     * Complexity: O(n) being n the number of vertices adjacent to the first vertex
-     * @param v1 the first vertex
-     * @param v2 the second vertex
-     * @return the distance between the two vertices
-     */
-    double calculateDistance(Vertex *v1, Vertex *v2);
 };
 
 #endif /* DA_TP_CLASSES_GRAPH */

@@ -119,6 +119,8 @@ protected:
     double distance;
 
     bool selected = false;
+
+    Edge *findEdge(Vertex *orig, Vertex *dest);
 };
 
 

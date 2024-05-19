@@ -18,7 +18,9 @@ add_executable(DA_RoutingAlgorithms
         src/models/Graph.cpp
         src/models/VertexEdge.cpp
         src/views/Menu.h
-        src/views/Menu.cpp)
+        src/views/Menu.cpp
+        src/models/TSPSimulatedAnnealing.cpp
+        src/models/TSPSimulatedAnnealing.h)
 
 
 # Doxygen Build

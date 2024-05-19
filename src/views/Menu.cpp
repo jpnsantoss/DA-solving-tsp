@@ -1,5 +1,6 @@
 
 #include "Menu.h"
+#include "models/TSPSimulatedAnnealing.h"
 
 void Menu::mainMenu() {
     clearScreen();
@@ -80,7 +81,7 @@ void Menu::extraGraphsMenu() {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
-    switch(option) {
+    switch (option) {
         case 1:
             Dataset::getInstance()->loadGraph("data/Extra_Fully_Connected_Graphs/edges_25.csv");
             chooseAlgorithm();
@@ -154,17 +155,20 @@ void Menu::realWorldGraphsMenu() {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    switch(option) {
+    switch (option) {
         case 1:
-            Dataset::getInstance()->loadRealWorldGraph("data/Real_World_Graphs/graph1/nodes.csv", "data/Real_World_Graphs/graph1/edges.csv");
+            Dataset::getInstance()->loadRealWorldGraph("data/Real_World_Graphs/graph1/nodes.csv",
+                                                       "data/Real_World_Graphs/graph1/edges.csv");
             chooseAlgorithm();
             break;
         case 2:
-            Dataset::getInstance()->loadRealWorldGraph("data/Real_World_Graphs/graph2/nodes.csv", "data/Real_World_Graphs/graph2/edges.csv");
+            Dataset::getInstance()->loadRealWorldGraph("data/Real_World_Graphs/graph2/nodes.csv",
+                                                       "data/Real_World_Graphs/graph2/edges.csv");
             chooseAlgorithm();
             break;
         case 3:
-            Dataset::getInstance()->loadRealWorldGraph("data/Real_World_Graphs/graph3/nodes.csv", "data/Real_World_Graphs/graph3/edges.csv");
+            Dataset::getInstance()->loadRealWorldGraph("data/Real_World_Graphs/graph3/nodes.csv",
+                                                       "data/Real_World_Graphs/graph3/edges.csv");
             chooseAlgorithm();
             break;
         default:
@@ -219,7 +223,7 @@ void Menu::chooseAlgorithm() {
          << "*     1)Backtracking Algorithm                    *\n"
          << "*     2)Triangular Approximation Heuristic        *\n"
          << "*     3)Nearest Neighbour Heuristic               *\n"
-         << "*     4)Christofides Heuristic                    *\n"
+         << "*     4)Simulated Annealing                       *\n"
          << "*                                                 *\n"
          << "*     0) BACK                                     *\n"
          << "*                                                 *\n"
@@ -231,10 +235,10 @@ void Menu::chooseAlgorithm() {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    vector<int>path;
+    vector<int> path;
     double distance;
     clock_t start, end;
-    switch(option) {
+    switch (option) {
         case 1:
             path.resize(Dataset::getInstance()->getGraph().getVertexSet().size());
             start = clock();
@@ -253,9 +257,14 @@ void Menu::chooseAlgorithm() {
             distance = Dataset::getInstance()->getGraph().tspNearestNeighbour(path);
             end = clock();
             break;
-        case 4:
-            //distance = Dataset::getInstance()->getGraph().tspChristofides();
+        case 4: {
+            distance = 0;
+            start = clock();
+            TSPSimulatedAnnealing simulatedAnnealing(Dataset::getInstance()->getGraph(), 1000, 0.95);
+            path = simulatedAnnealing.solve(distance, 0); // Assuming 0 as the starting vertex ID for simplicity
+            end = clock();
             break;
+        }
         default:
             break;
     }
@@ -263,13 +272,13 @@ void Menu::chooseAlgorithm() {
     cout << "Distance: " << distance << endl;
     cout << "Path: ";
 
-    for(auto v : path) {
+    for (auto v: path) {
         cout << v << " ";
     }
 
     cout << endl << endl;
 
-    cout << "Time: " << (double)(end - start) / CLOCKS_PER_SEC << "s" << endl;
+    cout << "Time: " << (double) (end - start) / CLOCKS_PER_SEC << "s" << endl;
 
     cout << endl << endl;
     cout << "Press 1 to return to the main menu or 0 to exit." << endl;
@@ -278,8 +287,7 @@ void Menu::chooseAlgorithm() {
 
     if (lastChoice == 0) {
         exit(0);
-    }
-    else {
+    } else {
         Dataset::getInstance()->getGraph().clearGraph();
         Menu().mainMenu();
     }

@@ -14,6 +14,20 @@ Vertex *Graph::findVertex(const int &id) const {
     return v->second;
 }
 
+Edge *Graph::findEdge(const int &id1, const int &id2) const {
+    Vertex *v1 = findVertex(id1);
+    Vertex *v2 = findVertex(id2);
+
+    if(v1 == nullptr || v2 == nullptr) return nullptr;
+
+    for(auto e: v1->getAdj()) {
+        if(e->getDest() == v2) return e;
+    }
+
+    return nullptr;
+
+}
+
 bool Graph::addVertex(Vertex *v) {
     if (findVertex(v->getId()) != nullptr)
         return false;
@@ -234,4 +248,6 @@ double Graph::calculateDistance(Vertex* v1, Vertex* v2) {
     }
     return haversineDistance(v1->getCords(), v2->getCords());
 }
+
+
 
