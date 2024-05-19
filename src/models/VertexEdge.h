@@ -12,8 +12,7 @@
 
 using namespace std;
 
-#define INF std::numeric_limits<int>::max()
-
+#define INF std::numeric_limits<double>::max()
 
 struct Coordinates {
     double longitude;
@@ -52,7 +51,7 @@ private:
     double dist = 0;
     int queueIndex = 0;
 
-    void deleteEdge(Edge *edge);
+    void deleteEdge(Edge *edge) const;
 
      int mstdegree = 0;
 

@@ -2,36 +2,6 @@
 #include <sstream>
 #include "Dataset.h"
 
-//toy graphs paths
-string SHIPPING_PATH = "../data/Toy_Graphs/shipping.csv";
-string STADIUMS_PATH = "../data/Toy_Graphs/stadiums.csv";
-string TOURISM_PATH = "../data/Toy_Graphs/tourism.csv";
-
-//extra graphs paths
-string E25_PATH = "../data/Extra_Fully_Connected_Graphs/edges_25.csv";
-string E50_PATH = "../data/Extra_Fully_Connected_Graphs/edges_50.csv";
-string E75_PATH = "../data/Extra_Fully_Connected_Graphs/edges_75.csv";
-string E100_PATH = "../data/Extra_Fully_Connected_Graphs/edges_100.csv";
-string E200_PATH = "../data/Extra_Fully_Connected_Graphs/edges_200.csv";
-string E300_PATH = "../data/Extra_Fully_Connected_Graphs/edges_300.csv";
-string E400_PATH = "../data/Extra_Fully_Connected_Graphs/edges_400.csv";
-string E500_PATH = "../data/Extra_Fully_Connected_Graphs/edges_500.csv";
-string E600_PATH = "../data/Extra_Fully_Connected_Graphs/edges_600.csv";
-string E700_PATH = "../data/Extra_Fully_Connected_Graphs/edges_700.csv";
-string E800_PATH = "../data/Extra_Fully_Connected_Graphs/edges_800.csv";
-string E900_PATH = "../data/Extra_Fully_Connected_Graphs/edges_900.csv";
-
-//real world graphs paths
-string GRAPH1_EDGESPATH = "../data/Real_World_Graphs/graph1/edges.csv";
-string GRAPH1_NODESPATH = "../data/Real_World_Graphs/graph1/nodes.csv";
-
-string GRAPH2_EDGESPATH = "../data/Real_World_Graphs/graph2/edges.csv";
-string GRAPH2_NODESPATH = "../data/Real_World_Graphs/graph2/nodes.csv";
-
-string GRAPH3_EDGESPATH = "../data/Real_World_Graphs/graph3/edges.csv";
-string GRAPH3_NODESPATH = "../data/Real_World_Graphs/graph3/nodes.csv";
-
-
 Dataset *Dataset::dataset = nullptr;
 
 Dataset::Dataset() = default;

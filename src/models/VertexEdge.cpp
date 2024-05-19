@@ -10,10 +10,6 @@ Vertex::Vertex(int id, Coordinates cords) {
     this->cords = cords;
 }
 
-/*
- * Auxiliary function to add an outgoing edge to a vertex (this),
- * with a given destination vertex (d) and edge weight (w).
- */
 Edge *Vertex::addEdge(Vertex *d, double w) {
     auto newEdge = new Edge(this, d, w);
     adj.push_back(newEdge);
@@ -21,10 +17,6 @@ Edge *Vertex::addEdge(Vertex *d, double w) {
     return newEdge;
 }
 
-
-/*
- * Auxiliary function to remove an outgoing edge of a vertex.
- */
 void Vertex::removeOutgoingEdges() {
     auto it = adj.begin();
     while (it != adj.end()) {
@@ -70,7 +62,7 @@ void Vertex::setPath(Edge *path) {
     this->path = path;
 }
 
-void Vertex::deleteEdge(Edge *edge) {
+void Vertex::deleteEdge(Edge *edge) const {
     Vertex *dest = edge->getDest();
     // Remove the corresponding edge from the incoming list
     auto it = dest->incoming.begin();
@@ -91,10 +83,6 @@ int Vertex::getId() const {
 
 Coordinates Vertex::getCords() const {
     return this->cords;
-}
-
-void Vertex::incrementmstdegree() {
-    mstdegree++;
 }
 
 //-----------------------Edge-----------------------------------
