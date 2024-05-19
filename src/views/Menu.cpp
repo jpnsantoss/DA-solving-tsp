@@ -238,6 +238,8 @@ void Menu::chooseAlgorithm() {
     vector<int> path;
     double distance;
     clock_t start, end;
+    string userVert;
+
     switch (option) {
         case 1:
             path.resize(Dataset::getInstance()->getGraph().getVertexSet().size());
@@ -259,9 +261,13 @@ void Menu::chooseAlgorithm() {
             break;
         case 4: {
             distance = 0;
+
+            cout << "Choose a vertex:  " << endl;
+            cin >> userVert;
+
             start = clock();
             TSPSimulatedAnnealing simulatedAnnealing(Dataset::getInstance()->getGraph(), 1000, 0.95);
-            path = simulatedAnnealing.solve(distance, 0); // Assuming 0 as the starting vertex ID for simplicity
+            path = simulatedAnnealing.tspOptimizationAlgorithm(distance, stoi(userVert)); // Assuming 0 as the starting vertex ID for simplicity
             end = clock();
             break;
         }

@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <ctime>
 #include <cmath>
-#include <random>
 
 TSPSimulatedAnnealing::TSPSimulatedAnnealing(Graph &graph, double temperature, double coolingRate) {
     this->graph = graph;
@@ -14,7 +13,7 @@ TSPSimulatedAnnealing::TSPSimulatedAnnealing(Graph &graph, double temperature, d
     this->coolingRate = coolingRate;
 }
 
-vector<int> TSPSimulatedAnnealing::solve(double &bestDist, int startingVertexId) {
+vector<int> TSPSimulatedAnnealing::tspOptimizationAlgorithm(double &bestDist, int startingVertexId) {
     double averageCostIncrease = 0.0;
     int step = 0;
     vector<int> currentTour = findInitialHamiltonianCycle(startingVertexId);
@@ -33,15 +32,12 @@ vector<int> TSPSimulatedAnnealing::solve(double &bestDist, int startingVertexId)
         double currentTourLength = calculatePathLength(currentTour);
         double newTourLength = calculatePathLength(newTour);
 
-        cout << "Current tour length: " << currentTourLength << endl;
-
         if (acceptanceProbability(currentTourLength, newTourLength, temperature) > ((double) rand() / RAND_MAX)) {
             currentTour = newTour;
             if (newTourLength < bestTourLength) {
                 bestTour = newTour;
                 bestTourLength = newTourLength;
             }
-            cout << "New tour length: " << newTourLength << endl;
         }
         temperature *= coolingRate;
         averageCostIncrease += newTourLength - currentTourLength;
@@ -79,8 +75,7 @@ double TSPSimulatedAnnealing::calculatePathLength(const vector<int> &path) {
     return totalDistance;
 }
 
-bool TSPSimulatedAnnealing::findHamiltonianPath(int currentVertex, vector<int> &path, vector<bool> &visited,
-                                                int startingVertexId) {
+bool TSPSimulatedAnnealing::findHamiltonianPath(int currentVertex, vector<int> &path, vector<bool> &visited, int startingVertexId) {
     path.push_back(currentVertex);
     visited[currentVertex] = true;
 
@@ -99,7 +94,16 @@ bool TSPSimulatedAnnealing::findHamiltonianPath(int currentVertex, vector<int> &
             if (findHamiltonianPath(edge->getDest()->getId(), path, visited, startingVertexId)) {
                 return true;
             }
-        }
+        double TSPSimulatedAnnealing::calculatePathLength(const vector<int> &path) {
+    double totalDistance = 0.0;
+
+    for (size_t i = 0; i < path.size() - 1; ++i) {
+        totalDistance += graph.findEdge(path[i], path[i + 1])->getDistance();
+    }
+
+    return totalDistance;
+}
+}
     }
 
     path.pop_back();
