@@ -231,18 +231,26 @@ void Menu::chooseAlgorithm() {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    vector<int>path(Dataset::getInstance()->getGraph().getVertexSet().size());
+    vector<int>path;
     double distance;
-
+    clock_t start, end;
     switch(option) {
         case 1:
-             distance = Dataset::getInstance()->getGraph().tspBacktracking(path);
+            path.resize(Dataset::getInstance()->getGraph().getVertexSet().size());
+            start = clock();
+            distance = Dataset::getInstance()->getGraph().tspBacktracking(path);
+            end = clock();
             break;
         case 2:
+            start = clock();
             distance = Dataset::getInstance()->getGraph().tspTriangularApproximation(path);
+            end = clock();
+
             break;
         case 3:
+            start = clock();
             distance = Dataset::getInstance()->getGraph().tspNearestNeighbour(path);
+            end = clock();
             break;
         case 4:
             //distance = Dataset::getInstance()->getGraph().tspChristofides();
@@ -257,6 +265,10 @@ void Menu::chooseAlgorithm() {
     for(auto v : path) {
         cout << v << " ";
     }
+
+    cout << endl << endl;
+
+    cout << "Time: " << (double)(end - start) / CLOCKS_PER_SEC << "s" << endl;
 
     cout << endl << endl;
     cout << "Press 1 to return to the main menu or 0 to exit." << endl;
